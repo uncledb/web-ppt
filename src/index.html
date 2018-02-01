@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PPT</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="container">
+
+	<div class="page">
+		<div class="topic">
+			<h1>webpack入门实践和性能优化</h1>
+		</div>
+		<div class="author">
+			<h1>uncledb - web前端开发组</h1>
+		</div>
+	</div>
+
+
+	<div class="page">
+		<div class="title">
+			<h1>web界面不仅仅是简单的信息展示</h1>
+		</div>
+		<div class="content">
+			<p>1. 如今，伴随互联网的发展，前端交互和视觉体验越来越重要，前端项目的复杂度随之增加</p>
+			<p>2. 前端不仅仅是简单的信息展示，逐渐演变成一个应用：webApp,web工程</p>
+			<p>3. 既然演变成了软件工程，那就会随之带来软件工程的处理方式和方法</p>
+			<p>4. "前端工程化"变成了一个尤为重要的课题：模块化、组件化、规范化、自动化</p>
+			<p>5. NodeJs推动前端迅猛发展,各种前端工程化的工具随之而来</p>
+			<p>6. 继Grunt,Gulp,Browserify...工具后，webpack后来者居上，成为实现前端工程化的利器</p>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="topic">
+			<h1>二、我们的前端框架</h1>
+		</div>
+	</div>
+
+
+	<div class="page">
+		<div class="title">
+			<h1>React + antd , npm , Sass, Less </h1>
+		</div>
+		<div class="content">
+			<p>1. 使用React相关技术进行组件化开发，使用大量jsx(React发明了JSX,利用HTML语法来创建虚拟DOM)语法，浏览器并不支持jsx</p>
+			<p>2. 使用es6的模块规范来定义、导入导出模块,目前（2018年初）,只有safari支持了模块导入</p>
+			<p>3. 使用css扩展语言Sass，Less，是很好的css规范化、函数化的工具;浏览器并不能直接识别.sass,.less文件</p>
+			<p>4. 使用了大量的第三方库，使用yarn(npm)来进行包管理(类似python中的pip包管理工具),手动引入到html中及其耗时麻烦</p>
+		</div>
+		<div class="footer">
+			<h4>综上：我们需要一个工具来替我们完成上面的工作，它就是webpack</h4>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="topic">
+			<h1>三、初识webpack</h1>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="title">
+			<h1>文档</h1>
+		</div>
+		<div class="content">
+			<p>webpack是一个模块打包工具</p>
+			<p>webpack可以帮我们处理es6、es7语法的转义，sass,less转义，混淆，压缩，并可以提供devServer开发环境，热更新HMR(Hot Module Reloading)等实用的功能</p>
+			<p>而这一切都只需要安装一些依赖和一个简单的配置文件，通过webpack加载器和插件来实现我们想要的功能</p>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="title">
+			<h1>webpack 工作流程梳理</h1>
+		</div>
+		<div class="content">
+			<p>* entry-option 初始化option</p>
+			<p>* run 开始编译</p>
+			<p>* make 从entry开始递归的分析依赖，对每个依赖模块进行build</p>
+			<p>* before-resolve - after-resolve 对其中一个模块位置进行解析</p>
+			<p>* build-module 开始构建 (build) 这个module,这里将使用文件对应的loader加载</p>
+			<p>* normal-module-loader 对用loader加载完成的module(是一段js代码)进行编译,用 acorn 编译,生成ast抽象语法树。</p>
+			<p>* program 开始对ast进行遍历，当遇到require,import(db 补充)等一些调用表达式时，触发call
+				require事件的handler执行，收集依赖，如：AMDRequireDependenciesBlockParserPlugin等</p>
+			<p>* seal 所有依赖build完成，下面将开始对chunk进行优化，比如合并,抽取公共模块,加hash</p>
+			<p>* bootstrap 生成启动代码</p>
+			<p>* emit 把各个chunk输出到结果文件</p>
+
+			<a href="https://doc.webpack-china.org/concepts/#-entry-" target="_blank">官方文档-中文</a>、
+			<a href="https://github.com/uncledb/webpackDemo/blob/master/webpack.config.js" target="_blank">Demo</a>、
+			<a href="https://github.com/uncledb/webpackDemo/blob/master/bundleAnalyze/bundle.js"
+			   target="_blank">分析bundle文件</a>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="topic">
+			<h1>四、我们的webpack配置和对应的性能优化</h1>
+		</div>
+	</div>
+
+
+	<div class="page">
+		<div class="title">
+			<h3>查看我们项目的配置</h3>
+		</div>
+		<div class="content">
+			<p>见项目配置</p>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="title">
+			<h3>性能优化方案</h3>
+		</div>
+		<div class="content">
+			<p>1）分析工具</p>
+			<p>2）图片limit</p>
+			<p>3）dll dll配置文件（commonChunk也可以，配合多入口配置）</p>
+			<p>4）happypack</p>
+			<p>5）tree shaking 暂时用不到</p>
+			<p>6）ugly插件的优化（效果不明显）</p>
+		</div>
+	</div>
+
+
+	<div class="page">
+		<div class="title">
+			<h3>优化对比-资源</h3>
+		</div>
+		<div class="content hole">
+			<img src="./img/old.jpg" alt="old">
+			<img src="./img/new.jpg" alt="new">
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="title">
+			<h3>优化对比-time</h3>
+		</div>
+		<div class="content hole">
+			<img src="./img/oldtime.jpg" alt="old">
+			<img src="./img/newtime.jpg" alt="new">
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="title">
+			<h3>优化对比-size</h3>
+		</div>
+		<div class="content hole">
+			<img src="./img/oldsize.jpg" alt="old">
+			<img src="./img/newsize.jpg" alt="new">
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="title">
+			<h3>总结</h3>
+		</div>
+		<div class="content">
+			<p>webpack等相关工具已经变成了我们日常开发的必备工具</p>
+			<p>个人认为，以目前的前端工具的发展速度来看，类似webpack的工具只要掌握其原理，loaders,plugins随用随看文档就可以</p>
+			<p>没有最优，只有更优。随着咱们项目的进行，更加深入的优化等待大家来完成。</p>
+			<p>前端发展日新月异，建议大家先抓住某一块钻研，再拓展开来</p>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="topic">
+			<h1>谢谢大家！</h1>
+		</div>
+	</div>
+
+
+</div>
+<script src="index.js"></script>
+</body>
+</html>
