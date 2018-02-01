@@ -74,7 +74,7 @@
 
 	<div class="page">
 		<div class="title">
-			<h1>webpack 工作流程梳理</h1>
+			<h1>webpack 工作流程梳理 <sup>[1]</sup></h1>
 		</div>
 		<div class="content">
 			<p>* entry-option 初始化option</p>
@@ -121,7 +121,7 @@
 			<p>2）图片limit</p>
 			<p>3）dll dll配置文件（commonChunk也可以，配合多入口配置）</p>
 			<p>4）happypack</p>
-			<p>5）tree shaking 暂时用不到</p>
+			<p>5）tree shaking 暂时用不到(import {} from '' 的写法 比如说lodash)</p>
 			<p>6）ugly插件的优化（效果不明显）</p>
 		</div>
 	</div>
@@ -170,11 +170,22 @@
 	</div>
 
 	<div class="page">
+		<div class="title">
+			<h3>标注以及参考资料</h3>
+		</div>
+		<div class="content">
+			<p>[1] https://lihuanghe.github.io/2016/05/30/webpack-source-analyse.html</p>
+			<p>https://segmentfault.com/a/1190000007891318</p>
+			<p>https://github.com/ruanyf/webpack-demos#demo01-entry-file-source</p>
+			<p>https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</p>
+		</div>
+	</div>
+
+	<div class="page">
 		<div class="topic">
 			<h1>谢谢大家！</h1>
 		</div>
 	</div>
-
 
 </div>
 <script src="index.js"></script>
