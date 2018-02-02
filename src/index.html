@@ -121,13 +121,13 @@
 				webpack-bundle-analyzer</a></p>
 			<p>2）图片limit - 优化了main.js的大小</p>
 			<p>3）<a href="https://doc.webpack-china.org/plugins/dll-plugin/#src/components/Sidebar/Sidebar.jsx"
-			        target="_blank">DllPlugin、DllReferencePlugin</a>dll
+			        target="_blank">DllPlugin、DllReferencePlugin</a>
 				dll配置文件（commonChunk也可以，配合多入口配置）优化了main.js大小和打包速度</p>
 			<p>4）<a href="https://github.com/amireh/happypack" target="_blank">happypack</a> - 优化babel jsx解析 效果明显 优化打包速度</p>
 			<p>5）<a href="https://doc.webpack-china.org/guides/tree-shaking/#src/components/Sidebar/Sidebar.jsx"
-			        target="_blank">tree shaking </a> 暂时用不到(import {} from '' 的写法 比如说lodash)</p>
-			<p>6）ugly插件的优化（效果不明显 放弃）</p>
-			<p>7）去掉了source-map 其实在正式环境还是很有用的，但是会损耗打包性能，同时管理端合并代码不好合并</p>
+			        target="_blank">tree shaking </a> 暂时用不到(要求用 import {} from '' 的写法 比如说lodash)</p>
+			<p>6）UglifyJsPlugin 插件的优化（效果不明显 放弃）</p>
+			<p>7）去掉了 <a href="https://doc.webpack-china.org/configuration/devtool/" target="_blank">source-map</a> 这可能并不是一个好的实践，其实在正式环境还是很有用的，但是会损耗打包性能，同时管理端合并代码不好合并，目前我们选择去掉了source-map</p>
 			<p>8）<a href="https://doc.webpack-china.org/guides/migrating/" target="_blank">升级webpack1 到 webpack 3（效果不明显
 				目前选择了升级）</a></p>
 		</div>
@@ -156,7 +156,7 @@
 
 	<div class="page">
 		<div class="title">
-			<h3>优化对比-size</h3>
+			<h3>优化对比-size（gzip:request Header {Content-Encoding:gzip}）</h3>
 		</div>
 		<div class="content hole">
 			<img src="./img/oldsize.jpg" alt="old">
