@@ -18,15 +18,15 @@
 		if ([37, 38].indexOf(keyCode) !== -1) {
 			// 左 上
 			go(-1);
-		} else if ([39, 40].indexOf(keyCode) !== -1) {
-			// 右 下
+		} else if ([39, 40, 13].indexOf(keyCode) !== -1) {
+			// 右 下 回车
 			go(+1);
 		}
 	});
 
 	// 历史记录
 	function go(num) {
-		if (num === 0) {
+		if (num === 0 || isNaN(num)) {
 			goToPage(1);
 			return false;
 		}
@@ -41,6 +41,8 @@
 	// 跳转到指定的页
 	function goToPage(pageNum) {
 		window.location.hash = pageNum;
+		// 设置下方进度条
+		document.querySelector('.process-bar').style.width = ~~(pageNum / totalPage * document.documentElement.clientWidth) + 'px';
 	}
 
 	function getCurrentPage() {
@@ -49,7 +51,5 @@
 
 	// 初始化
 	let currentPage = getCurrentPage();
-	if (currentPage === 0 || isNaN(currentPage)) {
-		go(0);
-	}
+	goToPage(currentPage)
 })();

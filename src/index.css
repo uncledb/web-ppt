@@ -48,13 +48,20 @@ body {
 }
 
 .content.hole {
-   margin: 0;
+    margin: 0;
 }
 
 .footer {
     font-size: 20px;
     color: #5989ff;
     margin-top: 20px;
+}
+
+.process-bar {
+    position: fixed;
+    bottom: 0;
+    height: 4px;
+    background-color: #b96dff;
 }
 
 p {
@@ -69,3 +76,4 @@ img {
     width: 550px;
     display: inline-block;
 }
+
