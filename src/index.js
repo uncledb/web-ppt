@@ -53,27 +53,3 @@
 		go(0);
 	}
 })();
-
-// let currentPage = 1;
-// let clientHeight = document.documentElement.clientHeight;
-//
-// window.addEventListener('keydown', function (e) {
-// 	let keyCode = e.keyCode;
-// 	if ([37, 38].indexOf(keyCode) !== -1) {
-// 		// 左 上
-// 		pre();
-// 	} else if ([39, 40].indexOf(keyCode) !== -1) {
-// 		// 右 下
-// 		next();
-// 	}
-// });
-//
-// function next() {
-// 	currentPage++;
-// 	document.body.style.transform = "translate(0px," + -currentPage * clientHeight + "px)";
-// }
-//
-// function pre() {
-// 	currentPage--;
-// 	document.body.style.transform = "translate(0px," + -currentPage * clientHeight + "px)";
-// }
