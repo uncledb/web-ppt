@@ -41,8 +41,8 @@
 	// 跳转到指定的页
 	function goToPage(pageNum) {
 		window.location.hash = pageNum;
-		// 设置下方进度条
-		document.querySelector('.process-bar').style.width = ~~(pageNum / totalPage * document.documentElement.clientWidth) + 'px';
+		// 设置下方进度条  vw不需要处理window resize 可以自适应
+		document.querySelector('.process-bar').style.width = ~~(pageNum / totalPage * 100) + 'vw';
 	}
 
 	function getCurrentPage() {
