@@ -1,8 +1,8 @@
 # web-ppt
 javascript web-ppt
-
-目前没有进行服务器搭建，需要一个静态服务器就可以了，然后访问index.html即可
-
+## 访问方式：
+- 搭建静态服务器，访问index.html
+- 直接使用浏览器里打开index.html
 ## 后续：
 - 框架化，数据模型配置即可出界面
 - 服务器环境
