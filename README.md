@@ -1,6 +1,8 @@
 # web-ppt
 javascript web-ppt
+类似 nodeppt
 ## 访问方式：
+- 直接访问 [http://htmlpreview.github.io/?https://github.com/uncledb/web-ppt/blob/master/src/index.html] (该项目地址)
 - 搭建静态服务器，访问index.html
 - 直接使用浏览器里打开index.html
 ## 后续：
