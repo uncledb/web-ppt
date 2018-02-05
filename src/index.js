@@ -26,10 +26,6 @@
 
 	// 历史记录
 	function go(num) {
-		if (num === 0 || isNaN(num)) {
-			goToPage(1);
-			return false;
-		}
 		let willGoPage = getCurrentPage() + num;
 		if (willGoPage < minPage || willGoPage > totalPage) {
 			console.log('到达边缘啦...');
@@ -46,7 +42,11 @@
 	}
 
 	function getCurrentPage() {
-		return +window.location.hash.substr(1);
+		let num = +window.location.hash.substr(1);
+		if (num <= 0 || isNaN(num)) {
+			return 1;
+		}
+		return num;
 	}
 
 	// 初始化
